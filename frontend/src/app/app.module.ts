@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { MqttModule } from 'ngx-mqtt';
+//Adicionando IMqttServiceOptions
+import { MqttModule, IMqttServiceOptions} from 'ngx-mqtt';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxScannerQrcodeModule, LOAD_WASM } from 'ngx-scanner-qrcode';
 import { CookieService } from 'ngx-cookie-service';
@@ -30,6 +31,14 @@ import { AnaliseComponent } from './analise/analise.component';
 import { MenuComponent } from './menu/menu.component';
 import { NovousuarioComponent } from './novousuario/novousuario.component';
 import { DropdownModule } from 'primeng/dropdown';
+import { UltimaMensagemComponent } from './ultima-mensagem/ultima-mensagem.component';
+
+//Alterações 
+export const MqttServiceOptions: IMqttServiceOptions ={
+  host: 'broker-mqtt',
+  port: 8884,
+  protocol: 'wss',
+}
 
 LOAD_WASM().subscribe();
 
@@ -44,7 +53,8 @@ LOAD_WASM().subscribe();
     ScannerComponent,
     AnaliseComponent,
     MenuComponent,
-    NovousuarioComponent
+    NovousuarioComponent,
+    UltimaMensagemComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +72,7 @@ LOAD_WASM().subscribe();
       port: 8081,
       protocol: 'wss'
     }),
+    MqttModule.forRoot(MqttServiceOptions),
     CalendarModule,
     BrowserAnimationsModule,
     PasswordModule,

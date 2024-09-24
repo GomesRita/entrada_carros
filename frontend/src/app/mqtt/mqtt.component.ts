@@ -16,7 +16,12 @@ export class MqttComponent implements OnInit{
 
   ngOnInit(): void {
     this.onListar();
+
+
   }
+
+
+
 
   formatarData(data: string): string {
     const opcoes: Intl.DateTimeFormatOptions = {
@@ -40,6 +45,8 @@ export class MqttComponent implements OnInit{
       error: (error: any) => { console.log(error) },
       complete: () => this.carregando = false
     });
+    //Método Transferido para o compenente lista
+    
     this.dadosService.getUltimaMensagem().subscribe({
       next: (resultado: any[]) => {
         console.log(resultado);
@@ -47,7 +54,8 @@ export class MqttComponent implements OnInit{
           return {...item, img: `../assets/images/entrada/${item.img}`, dataHora: this.formatarData(item.dataHora)}}));
       },
       error: (error: any) => { console.log(error) },
-    });
+    }); 
+    
   }
 
   // handleFileInput(event: any): void {

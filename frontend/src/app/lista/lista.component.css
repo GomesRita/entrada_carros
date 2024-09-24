@@ -33,6 +33,16 @@ h2 {
     align-items: center;
     justify-content: flex-end;
 }
+.message-container {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+.message-item {
+    margin: 5px;
+}
 
 @media only screen and (max-width: 600px) {
     .input-group {

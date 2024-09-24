@@ -10,14 +10,16 @@
   </h2>
 </div>
 <div *ngIf="!carregando">
-  <h2>Último carro detectado:</h2>
+  <!--
+  <h2>Último carro detectado</h2>
   <div class="message-container">
-    <table *ngFor="let mensagem of mensagensRecebidas" class="message-item">
-      <tr><img [src]="mensagem.img" alt="Imagem Recebida" style="max-width: 400px;"></tr>
-      <tr>Carro com placa {{ mensagem.placa }} às {{ mensagem.dataHora }}</tr>
-    </table>
+      <table *ngFor="let mensagem of mensagensRecebidas" class="message-item">
+        <tr><img [src]="mensagem.img" alt="Imagem Recebida" style="max-width: 400px;"></tr>
+        <tr>Carro com placa {{ mensagem.placa }} às {{ mensagem.dataHora }}</tr>
+      </table>
   </div>
   <hr>
+  -->
   <div class="historico">
     <h2>Histórico de entrada de carros:</h2>
     <table *ngFor="let dado of dados">

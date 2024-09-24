@@ -1,0 +1,24 @@
+Utilizando o MQTTX para enviar mensagens ao broker-mqtt da aplicação.
+
+No sistema do MQTTX foram informados os seguintes dados para realizar a conexão
+
+Name: broker-mqtt
+Host: mqtt://	localhost
+port: 1884
+
+Em seguida basta inserir o tópico que receberá as mensagens
+
+cam_vec_1
+
+e inserir a mensagem, como no modelo abaixo, no formato json e enviá-la
+
+{
+	"img": "Mensagem aleatória",
+	"dataHora": "04/09/2024"
+}
+
+no terminal, cmd ou bash, basta inserir o seguinte código para visualizar o recebimento das mensagens:
+sudo mosquitto_sub -h localhost -p 1884 -t cam_vec_1 -v
+
+
+

@@ -83,7 +83,7 @@ services:
     depends_on:
       - backend
     ports:
-      - 1884:1884
+      - 8884:8884
     networks:
       - my-networks
     volumes:
@@ -95,5 +95,6 @@ services:
 volumes:
   mysql-data:
   shared-volume:
+
 networks:
-  my-networks:
+  my-networks: {}

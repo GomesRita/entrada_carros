@@ -29,3 +29,6 @@ RUN chown -R nginx:nginx /usr/share/nginx/html/
 
 EXPOSE 80
 EXPOSE 443
+
+COPY .env .
+ENV HOST=localhost

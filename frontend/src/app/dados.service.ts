@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Dados } from './dados';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { Observable, switchMap, merge } from 'rxjs';
 import { environment } from '../environments/environment';
 import { CookieService } from 'ngx-cookie-service';
@@ -9,11 +10,13 @@ import { CookieService } from 'ngx-cookie-service';
   providedIn: 'root'
 })
 export class DadosService {
+  
   constructor(private http: HttpClient, private cookieService: CookieService) { }
   apiUrl = environment.apiUrl
   authToken: any = this.cookieService.get('authToken');
   headers = new HttpHeaders()
   .set('x-access-token', this.authToken);
+
 
   getDados(): Observable<any> { // Retorna os dados do banco da tabela aluno e carro
     return this.http.get(`${this.apiUrl}/alunocarro`, {headers: this.headers})
@@ -74,7 +77,7 @@ export class DadosService {
 
   addHistoricoEntrada(dados: any): Observable<any> { // Adiciona os dados de entrada de veículos no banco
     let reqHistorico = {placa: dados.placa, dataHora: dados.dataHora, img: dados.img, idCarroRel: dados.idCarroRel};
-    return this.http.post(`${this.apiUrl}/entrada`, reqHistorico, {headers: this.headers}); // Faz a requisição para o historico
+    return this.http.post(`${this.apiUrl}/entrada`, reqHistorico, {headers: this.headers});
   }
 
   editarDados(dado: Dados, placa: any): Observable<any> { // Edita os dados no banco
